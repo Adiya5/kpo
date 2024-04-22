@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .header-block {
+            width: 23%; /* Equal width considering the padding */
+            text-align: center;
+            padding: 10px;
+            background-color: #ddd;
+            margin: 0 10px; /* Adding margin for spacing */
+        }
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100% - 60px); /* Adjusted for the header height */
+        }
+        form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+            width: 300px;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type=text] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #5c85d6;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4a6fa5;
+        }
+        .date-picker-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .date-picker-container label {
+        margin-right: 10px; /* Adjust the spacing as needed */
+    }
+
+    .date-picker-container input[type="date"] {
+        /* Additional styling for the date input if necessary */
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-block"><a href="/">Test Plan</a></div>
+        <div class="header-block"><a href="/implementation">Implementation Plan</a></div>
+        <div class="header-block"><a href="/rollback">Rollback Plan</a></div>
+        <div class="header-block"><a href="/excel">Excel Plan</a></div>
+    </header>
+    <div class="form-container">
+        <form action="/generate_word_plan" method="POST">
+            <div>
+                <label for="name">Name and Surname:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div>
+                <label for="speciality">Specialty:</label>
+                <input type="text" id="speciality" name="speciality" placeholder="Your Specialty" required>
+            </div>
+            <div class="date-picker-container">
+                <label for="date">Choose a date:</label>
+                <input type="date" id="date" name="date" required placeholder="ДД.ММ.ГГГГ">
+            </div>
+            <div>
+                <label for="path">Path to Notification Message:</label>
+                <input type="text" id="path" name="path"  placeholder="Path" required>
+            </div>
+            <button type="submit">Generate Word Document</button>
+        </form>
+    </div>
+</body>
+</html>
